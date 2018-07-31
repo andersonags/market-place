@@ -89,7 +89,7 @@ class ProductQuestion(models.Model):
     )
     question = models.TextField()
     STATUS_CHOICES = (
-        ('Active', 'Active')
+        ('Active', 'Active'),
         ('Inactive', 'Inactive')
     )
     status = models.CharField(
@@ -115,7 +115,7 @@ class ProductAnswer(models.Model):
     )
     question = models.TextField()
     STATUS_CHOICES = (
-        ('Active', 'Active')
+        ('Active', 'Active'),
         ('Inactive', 'Inactive')
     )
     Status = models.CharField(
