@@ -80,7 +80,8 @@ class Product(models.Model):
 
 class ProductQuestion(models.Model):
     user = models.OneToOneField(
-        User
+        User,
+        on_delete=models.PROTECT
     )
     product = models.ForeignKey(
         'Product'
@@ -104,7 +105,8 @@ def __str__(self):
 
 class ProductAnswer(models.Model):
     user = models.OneToOneField(
-        User
+        User,
+        on_delete=models.PROTECT
     )
     product_question = models.ForeignKey(
         ProductQuestion
