@@ -90,8 +90,8 @@ class ProductQuestion(models.Model):
         ('Active', 'Active')
         ('Inactive', 'Inactive')
     )
-    Status = models.CharField(
-        max_length=20
+    status = models.CharField(
+        max_length=20,
         choices=STATUS_CHOICES,
         default="Inactive"
     )
@@ -115,7 +115,7 @@ class ProductAnswer(models.Model):
         ('Inactive', 'Inactive')
     )
     Status = models.CharField(
-        max_length=20
+        max_length=20,
         choices=STATUS_CHOICES,
         default="Inactive"
     )
