@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from portal.models import Category, Product
+from portal.models import Category, Product, ProductAnswer, ProductQuestion
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -31,5 +31,13 @@ class ProductAdmin(admin.ModelAdmin):
         'status'
     )
 
+class ProductAnswerInline(admin.StackedInline):
+    model = ProductAnswer
+    can_delete = False
+
+class ProductQuestionAdmin(admin.ModelAdmin):
+    inlines = (ProductAnswerInline,)
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(ProductQuestion, ProductQuestionAdmin)
