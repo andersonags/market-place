@@ -36,6 +36,13 @@ class ProductAnswerInline(admin.StackedInline):
     can_delete = False
 
 class ProductQuestionAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'product',
+        'question',
+        'status'
+    )
+
     inlines = (ProductAnswerInline,)
 
 admin.site.register(Product, ProductAdmin)
