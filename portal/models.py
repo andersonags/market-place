@@ -99,7 +99,7 @@ class ProductQuestion(models.Model):
     )
 
 class Meta:
-    verbose_name_plural = "Questions"
+    verbose_name_plural = "Product_Questions"
 
 def __str__(self):
     return self.question
