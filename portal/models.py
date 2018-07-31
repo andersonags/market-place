@@ -84,7 +84,8 @@ class ProductQuestion(models.Model):
         on_delete=models.PROTECT
     )
     product = models.ForeignKey(
-        'Product'
+        'Product',
+        on_delete=models.PROTECT
     )
     question = models.TextField()
     STATUS_CHOICES = (
@@ -109,7 +110,8 @@ class ProductAnswer(models.Model):
         on_delete=models.PROTECT
     )
     product_question = models.ForeignKey(
-        ProductQuestion
+        'ProductQuestion',
+        on_delete=models.PROTECT
     )
     question = models.TextField()
     STATUS_CHOICES = (
