@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User
 
 class RegistrationForm(forms.Form):
     username = forms.RegexField(
@@ -42,3 +43,17 @@ class RegistrationForm(forms.Form):
         ),
         label='Repeat your password'
     )
+
+def clean_username(self):
+    try:
+        user = User.objects.get(username__iexact=self.cleaned_data['username'])
+    except User.DoesNotExist:
+        return self.cleaned_data['username']
+    raise forms.ValidationError("Usuário já existe")
+
+def clean(self):
+    if 'password' in self.cleaned_data['password'] and 'password2' in self.cleaned_data['password2']:
+        if self.cleaned_data['password1'] != self.cleaned_data['password2']:
+            raise forms.ValidationError("Senha diferente")
+
+    return self.cleaned_data
