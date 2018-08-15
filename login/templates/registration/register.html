@@ -7,7 +7,7 @@
   <hr>
 
   <form method="post"action="{% url 'login_register' %}" class="form-horizontal">
-    {% csrf token %}
+    {% csrf_token %}
     {{ form.as_p }}
 
     <br>
