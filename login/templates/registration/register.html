@@ -6,7 +6,11 @@
   <h3>Register</h3>
   <hr>
 
-  <form>
+  <form method="post"action="{% url 'login_register' %}" class="form-horizontal">
+    {% csrf token %}
     {{ form.as_p }}
+
+    <br>
+    <input type="submit" value="Forgot your username"
   </form>
 {% endblock %}

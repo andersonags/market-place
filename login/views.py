@@ -11,7 +11,9 @@ def register(request):
                 email=form.cleaned_data['email']
             )
             return HttpResponseRedirect(reverse('login_register_success'))
-    context = {'form': form}
+        else:
+            context = {'form': form}
+            
     return render(request, 'registration/register.html', context)
 
 def register_success(request):
