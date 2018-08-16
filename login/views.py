@@ -1,5 +1,9 @@
 from django.shortcuts import render, render_to_response
 from login.forms import RegistrationForm
+from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 
 def register(request):
     if request.method == 'POST':
