@@ -16,7 +16,7 @@ class ProductForm(forms.Form):
         label='Quantidade',
         max_length=4,
         required=True,
-        widget=forms.Text(attrs={
+        widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'Quantidade'
 
