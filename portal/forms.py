@@ -5,7 +5,7 @@ class ProductForm(forms.Form):
     name = forms.CharField(
         label='Nome',
         max_length=244,
-        required=True
+        required=True,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'Nome'
@@ -15,7 +15,7 @@ class ProductForm(forms.Form):
     quantity = forms.CharField(
         label='Quantidade',
         max_length=4,
-        required=True
+        required=True,
         widget=forms.Text(attrs={
             'class': 'form-control',
             'placeholder': 'Quantidade'
@@ -24,7 +24,7 @@ class ProductForm(forms.Form):
     )
     prince = forms.CharField(
         label='Valor',
-        required=True
+        required=True,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'Valor'
@@ -33,7 +33,7 @@ class ProductForm(forms.Form):
     )
     short_description = forms.CharField(
         label='Descrição Curta',
-        required=True
+        required=True,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'Descrição Curta'
@@ -43,7 +43,7 @@ class ProductForm(forms.Form):
     description = forms.CharField(
         label='Descrição',
         max_length=4,
-        required=True
+        required=True,
         widget=forms.Textarea(attrs={
             'class': 'form-control',
             'placeholder': 'Descrição'

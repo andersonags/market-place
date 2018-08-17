@@ -1,5 +1,6 @@
 from django.shortcuts import render, render_to_response
-from portal.models import Product
+from portal.models import Product, Category
+from portal.forms import ProductForm
 
 def home(request):
     return render(request, 'portal/home.html',{})
