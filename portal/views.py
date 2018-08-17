@@ -12,3 +12,13 @@ def my_products(request):
     }
 
     return render(request, 'portal/my_products.html', context)
+
+def product_new(request):
+    categories = Category.objects.all()
+    form = ProductsForm()
+
+    context = {
+        'form': form,
+        'categories': categories
+    }
+    return render(request, 'portal/product_new.html', context)
