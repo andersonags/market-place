@@ -16,7 +16,7 @@ def my_products(request):
 
 def product_new(request):
     categories = Category.objects.all()
-    form = ProductsForm()
+    form = ProductForm()
 
     context = {
         'form': form,
