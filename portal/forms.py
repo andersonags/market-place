@@ -1,4 +1,5 @@
 from django import forms
+from portal.models import Category
 
 
 class ProductForm(forms.Form):
@@ -12,6 +13,15 @@ class ProductForm(forms.Form):
 
         })
     )
+
+    category = forms.ModelChoiceField(
+        label='Categoria',
+        queryset=Category.objects.all(),
+        empty_label='-----',
+        widget=forms.Select(attrs={
+            'class': 'form-control'
+        })
+    )
     quantity = forms.CharField(
         label='Quantidade',
         max_length=4,
@@ -22,7 +32,7 @@ class ProductForm(forms.Form):
 
         })
     )
-    prince = forms.CharField(
+    price = forms.CharField(
         label='Valor',
         required=True,
         widget=forms.TextInput(attrs={
@@ -42,7 +52,6 @@ class ProductForm(forms.Form):
     )
     description = forms.CharField(
         label='Descrição',
-        max_length=4,
         required=True,
         widget=forms.Textarea(attrs={
             'class': 'form-control',

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import uuid
 
 class Category(models.Model):
     name = models.CharField(
@@ -7,7 +8,8 @@ class Category(models.Model):
         blank=True
     )
     slug = models.SlugField(
-        unique=True
+        unique=True,
+        default=uuid.uuid1
     )
     parent = models.ForeignKey(
         'Category',
@@ -38,7 +40,7 @@ class Product(models.Model):
     slug = models.SlugField(
         unique=True
     )
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         User,
         on_delete=models.PROTECT
     )
@@ -51,7 +53,7 @@ class Product(models.Model):
         default=1
 
     )
-    prince = models.DecimalField(
+    price = models.DecimalField(
         max_digits=8,
         decimal_places=2
     )
